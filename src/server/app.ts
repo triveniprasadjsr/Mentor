@@ -33,6 +33,14 @@ export function createApp() {
   // Attach auth extraction middleware
   app.use(authenticateToken);
 
+  // Body normalization fallback (prevents destructuring errors if body is undefined)
+  app.use((req, _res, next) => {
+    if (!req.body || typeof req.body !== 'object') {
+      req.body = {};
+    }
+    next();
+  });
+
   // Health and deployment status endpoints
   app.get(['/api/health', '/health'], (_req, res) => {
     res.json({
@@ -54,6 +62,29 @@ export function createApp() {
   // Mount API endpoints both at /api and at root for Vercel rewrite compatibility
   app.use('/api', apiRoutes);
   app.use('/', apiRoutes);
+
+  // Handle unmatched API routes with JSON 404 instead of HTML
+  app.use('/api', (req, res) => {
+    res.status(404).json({
+      success: false,
+      error: `API route not found: ${req.method} ${req.originalUrl || req.url}`,
+    });
+  });
+
+  // Global Error Handler - guarantees structured JSON response instead of HTML 500
+  app.use((err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
+    console.error('[TechSetu Server Uncaught Exception]:', err);
+    const status =
+      typeof err.status === 'number'
+        ? err.status
+        : typeof err.statusCode === 'number'
+        ? err.statusCode
+        : 500;
+    res.status(status).json({
+      success: false,
+      error: err.message || 'Internal Server Error',
+    });
+  });
 
   return app;
 }

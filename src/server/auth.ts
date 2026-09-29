@@ -11,16 +11,21 @@ export interface AuthRequest extends Request {
 }
 
 export function signToken(user: User): string {
-  return jwt.sign(
-    {
-      id: user.id,
-      email: user.email,
-      role: user.role,
-      name: user.name,
-    },
-    JWT_SECRET,
-    { expiresIn: '7d' }
-  );
+  try {
+    return jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        name: user.name,
+      },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+  } catch (err) {
+    console.error('[Auth Error] Failed to generate JWT token:', err);
+    throw new Error('Authentication token generation failed');
+  }
 }
 
 export function hashPassword(plain: string): string {
@@ -28,8 +33,16 @@ export function hashPassword(plain: string): string {
   return bcrypt.hashSync(plain, salt);
 }
 
-export function comparePassword(plain: string, hash: string): boolean {
-  return bcrypt.compareSync(plain, hash);
+export function comparePassword(plain: string, hash?: string): boolean {
+  if (!plain || !hash || typeof hash !== 'string' || typeof plain !== 'string') {
+    return false;
+  }
+  try {
+    return bcrypt.compareSync(plain, hash);
+  } catch (err) {
+    console.error('[Auth Error] bcrypt comparison failed safely:', err);
+    return false;
+  }
 }
 
 export function authenticateToken(req: AuthRequest, res: Response, next: NextFunction): void {

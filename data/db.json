@@ -30,77 +30,7 @@
       "updatedAt": "2026-09-25T19:36:14.660Z"
     }
   ],
-  "instructors": [
-    {
-      "id": "inst-1",
-      "name": "Er. Rajiv Sharma",
-      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
-      "qualification": "M.Tech (Power Systems, IIT Delhi), Ex-IES",
-      "experience": "12+ Years Teaching Experience for SSC JE & RRB JE",
-      "subjects": [
-        "Circuit Theory",
-        "Electrical Machines",
-        "Power Systems"
-      ],
-      "examExpertise": [
-        "SSC JE",
-        "RRB JE",
-        "UPPCL AE/JE",
-        "State PSC AE"
-      ],
-      "bio": "Er. Rajiv Sharma has trained over 45,000+ engineering aspirants with hundreds of top-100 ranks across national engineering examinations. Known for his intuitive visual explanation of electrical machines.",
-      "rating": 4.9,
-      "totalStudents": 14200,
-      "coursesCount": 3,
-      "createdAt": "2026-09-25T19:36:14.660Z"
-    },
-    {
-      "id": "inst-2",
-      "name": "Er. Ananya Sen",
-      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-      "qualification": "M.Tech (IIT Roorkee), Gold Medalist",
-      "experience": "9+ Years in Technical & Non-Tech Aptitude for Engineering Exams",
-      "subjects": [
-        "Basic Electronics",
-        "Measurement & Instrumentation",
-        "Engineering Mathematics"
-      ],
-      "examExpertise": [
-        "RRB JE CBT 1 & 2",
-        "SSC JE",
-        "DMRC JE"
-      ],
-      "bio": "Specialist in simplifying complex instrumentation diagrams and non-technical quantitative sections for diploma and degree engineers.",
-      "rating": 4.85,
-      "totalStudents": 11800,
-      "coursesCount": 2,
-      "createdAt": "2026-09-25T19:36:14.660Z"
-    },
-    {
-      "id": "inst-3",
-      "name": "Er. Vikram Patel",
-      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-      "qualification": "B.Tech (Civil Engineering, IIT BHU), Senior Structural Consultant",
-      "experience": "14+ Years in AE/JE Coaching & Infrastructure Consulting",
-      "subjects": [
-        "Strength of Materials (SOM)",
-        "RCC Structures",
-        "Fluid Mechanics",
-        "Surveying"
-      ],
-      "examExpertise": [
-        "State AE/JE",
-        "SSC JE Civil",
-        "BPSC AE",
-        "UKPSC JE"
-      ],
-      "bio": "Authored 4 best-selling study guides for Civil Engineering competitive exams with practical field examples and short tricks.",
-      "rating": 4.92,
-      "totalStudents": 16500,
-      "coursesCount": 2,
-      "createdAt": "2026-09-25T19:36:14.660Z"
-    }
-  ],
+  "instructors": [],
   "courses": [
     {
       "id": "course-1",
@@ -442,71 +372,8 @@
     }
   ],
   "assignmentSubmissions": [],
-  "payments": [
-    {
-      "id": "pay-seed-1",
-      "orderId": "ORD-20260925-001",
-      "studentId": "usr-student-1",
-      "studentName": "Aman Kumar Verma",
-      "studentEmail": "student@test.com",
-      "studentPhone": "+91 9123456780",
-      "courseId": "course-1",
-      "courseTitle": "SSC JE 2026: Electrical Engineering Comprehensive Master Batch",
-      "amount": 1499,
-      "paymentMethod": "manual_upi",
-      "transactionId": "UPI428910482910",
-      "receiptUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80",
-      "status": "approved",
-      "adminNote": "Verified via bank statement UTR matching.",
-      "submittedAt": "2026-09-23T19:36:14.661Z",
-      "reviewedAt": "2026-09-24T00:24:14.661Z",
-      "reviewedBy": "admin@techsetu.com"
-    },
-    {
-      "id": "pay-seed-2",
-      "orderId": "ORD-20260925-002",
-      "studentId": "usr-student-1",
-      "studentName": "Aman Kumar Verma",
-      "studentEmail": "student@test.com",
-      "studentPhone": "+91 9123456780",
-      "courseId": "course-2",
-      "courseTitle": "RRB JE 2026: CBT-1 + CBT-2 Technical & Non-Tech Super Batch",
-      "amount": 1999,
-      "paymentMethod": "manual_upi",
-      "transactionId": "UPI881928301948",
-      "receiptUrl": "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&auto=format&fit=crop&q=80",
-      "status": "approved",
-      "adminNote": "Approved by Administrator",
-      "submittedAt": "2026-09-25T15:36:14.661Z",
-      "reviewedAt": "2026-09-29T14:59:36.423Z",
-      "reviewedBy": "admin@techsetu.com"
-    }
-  ],
-  "enrollments": [
-    {
-      "id": "enr-seed-1",
-      "studentId": "usr-student-1",
-      "courseId": "course-1",
-      "paymentId": "pay-seed-1",
-      "status": "active",
-      "enrolledAt": "2026-09-24T00:24:14.661Z",
-      "grantedBy": "payment_approval",
-      "progressPercentage": 40
-    },
-    {
-      "id": "enr-1790693976424-wwq5i",
-      "studentId": "usr-student-1",
-      "courseId": "course-2",
-      "paymentId": "pay-seed-2",
-      "status": "active",
-      "enrolledAt": "2026-09-29T14:59:36.424Z",
-      "grantedBy": "payment_approval",
-      "validityDuration": "365 Days",
-      "expiresAt": "2027-09-29T14:59:36.424Z",
-      "isExpired": false,
-      "progressPercentage": 0
-    }
-  ],
+  "payments": [],
+  "enrollments": [],
   "progress": [
     {
       "id": "prog-seed-1",
@@ -586,6 +453,69 @@
     "announcementBanner": "🚀 Admissions Open for 2026 Engineering Exam Batches! Flat 40% Off with Early Bird Offer."
   },
   "auditLogs": [
+    {
+      "id": "audit-1790706939579-94gg",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T18:35:39.579Z"
+    },
+    {
+      "id": "audit-1790706422491-mhrs",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T18:27:02.492Z"
+    },
+    {
+      "id": "audit-1790704328584-m4bp",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ENROLLMENT_DELETED",
+      "entityType": "Enrollment",
+      "entityId": "enr-1790693976424-wwq5i",
+      "details": "Admin deleted enrollment record enr-1790693976424-wwq5i.",
+      "timestamp": "2026-09-29T17:52:08.584Z"
+    },
+    {
+      "id": "audit-1790704326122-elsu",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ENROLLMENT_DELETED",
+      "entityType": "Enrollment",
+      "entityId": "enr-seed-1",
+      "details": "Admin deleted enrollment record enr-seed-1.",
+      "timestamp": "2026-09-29T17:52:06.122Z"
+    },
+    {
+      "id": "audit-1790704294681-srr2",
+      "adminEmail": "admin@techsetu.com",
+      "action": "PAYMENT_DELETED",
+      "entityType": "Payment",
+      "entityId": "pay-seed-1",
+      "details": "Admin deleted payment record pay-seed-1.",
+      "timestamp": "2026-09-29T17:51:34.682Z"
+    },
+    {
+      "id": "audit-1790704291818-n86i",
+      "adminEmail": "admin@techsetu.com",
+      "action": "PAYMENT_DELETED",
+      "entityType": "Payment",
+      "entityId": "pay-seed-2",
+      "details": "Admin deleted payment record pay-seed-2.",
+      "timestamp": "2026-09-29T17:51:31.818Z"
+    },
+    {
+      "id": "audit-1790704280533-6iob",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T17:51:20.533Z"
+    },
     {
       "id": "audit-1790700845523-1jgm",
       "adminEmail": "admin@techsetu.com",

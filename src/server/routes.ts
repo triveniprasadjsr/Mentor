@@ -145,67 +145,98 @@ router.post('/auth/register', (req, res) => {
 });
 
 router.post('/auth/login', (req, res) => {
-  const { identifier, password } = req.body; // email or phone
-  if (!identifier || !password) {
-    res.status(400).json({ error: 'Email/Phone and password are required' });
-    return;
+  try {
+    const { identifier, email, phone, password } = req.body || {};
+    const loginId = identifier || email || phone;
+
+    if (!loginId || !password) {
+      res.status(400).json({ success: false, error: 'Email/Phone and password are required' });
+      return;
+    }
+
+    const cleanId = String(loginId).trim();
+    let user = db.findUserByEmail(cleanId);
+    if (!user) {
+      user = db.findUserByPhone(cleanId);
+    }
+
+    if (!user) {
+      res.status(401).json({ success: false, error: 'Invalid credentials. User not found.' });
+      return;
+    }
+
+    if (user.status === 'suspended') {
+      res.status(403).json({ success: false, error: 'This account has been suspended. Please contact admin.' });
+      return;
+    }
+
+    const valid = comparePassword(String(password), user.passwordHash);
+    if (!valid) {
+      res.status(401).json({ success: false, error: 'Invalid password. Please try again.' });
+      return;
+    }
+
+    const { passwordHash: _, ...safeUser } = user;
+    const token = signToken(safeUser);
+    res.json({ success: true, user: safeUser, token });
+  } catch (err: any) {
+    console.error('[Login Error] Unexpected error during login:', err);
+    res.status(500).json({
+      success: false,
+      error: 'Authentication failed due to a server error. Please try again.',
+    });
   }
-
-  const user =
-    db.findUserByEmail(identifier) ||
-    db.findUserByPhone(identifier);
-
-  if (!user) {
-    res.status(401).json({ error: 'Invalid credentials. User not found.' });
-    return;
-  }
-
-  if (user.status === 'suspended') {
-    res.status(403).json({ error: 'This account has been suspended. Please contact admin.' });
-    return;
-  }
-
-  const valid = comparePassword(password, user.passwordHash);
-  if (!valid) {
-    res.status(401).json({ error: 'Invalid password. Please try again.' });
-    return;
-  }
-
-  const { passwordHash: _, ...safeUser } = user;
-  const token = signToken(safeUser);
-  res.json({ user: safeUser, token });
 });
 
 router.post('/auth/admin-login', (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    res.status(400).json({ error: 'Email and password are required' });
-    return;
+  try {
+    const { email, password } = req.body || {};
+    if (!email || !password) {
+      res.status(400).json({ success: false, error: 'Admin email and password are required' });
+      return;
+    }
+
+    const cleanEmail = String(email).trim().toLowerCase();
+    const user = db.findUserByEmail(cleanEmail);
+    if (!user || user.role !== 'admin') {
+      res.status(401).json({ success: false, error: 'Invalid admin credentials or insufficient privileges' });
+      return;
+    }
+
+    if (!user.passwordHash) {
+      console.error(`[Admin Login Error] User ${user.email} has no password hash set.`);
+      res.status(401).json({ success: false, error: 'Admin password not initialized. Please contact support.' });
+      return;
+    }
+
+    const valid = comparePassword(String(password), user.passwordHash);
+    if (!valid) {
+      res.status(401).json({ success: false, error: 'Invalid admin password' });
+      return;
+    }
+
+    try {
+      db.addAuditLog({
+        adminEmail: user.email,
+        action: 'ADMIN_LOGIN',
+        entityType: 'User',
+        entityId: user.id,
+        details: 'Admin logged into administration panel successfully.',
+      });
+    } catch (auditErr) {
+      console.warn('[Audit Log Warning] Failed to save login audit log:', auditErr);
+    }
+
+    const { passwordHash: _, ...safeUser } = user;
+    const token = signToken(safeUser);
+    res.json({ success: true, user: safeUser, token });
+  } catch (err: any) {
+    console.error('[Admin Login Error] Fatal exception during admin authentication:', err);
+    res.status(500).json({
+      success: false,
+      error: 'Server encountered an unexpected error during admin authentication: ' + (err.message || 'Unknown error'),
+    });
   }
-
-  const user = db.findUserByEmail(email);
-  if (!user || user.role !== 'admin') {
-    res.status(401).json({ error: 'Invalid admin credentials or insufficient privileges' });
-    return;
-  }
-
-  const valid = comparePassword(password, user.passwordHash);
-  if (!valid) {
-    res.status(401).json({ error: 'Invalid admin password' });
-    return;
-  }
-
-  db.addAuditLog({
-    adminEmail: user.email,
-    action: 'ADMIN_LOGIN',
-    entityType: 'User',
-    entityId: user.id,
-    details: 'Admin logged into administration panel successfully.',
-  });
-
-  const { passwordHash: _, ...safeUser } = user;
-  const token = signToken(safeUser);
-  res.json({ user: safeUser, token });
 });
 
 router.get('/auth/me', requireAuth, (req: AuthRequest, res) => {

@@ -795,7 +795,42 @@ class PersistentDatabase {
     }
 
     if (loadedData) {
-      this.data = loadedData;
+      this.data = {
+        users: Array.isArray(loadedData.users) ? loadedData.users : [],
+        instructors: Array.isArray(loadedData.instructors) ? loadedData.instructors : [],
+        courses: Array.isArray(loadedData.courses) ? loadedData.courses : [],
+        modules: Array.isArray(loadedData.modules) ? loadedData.modules : [],
+        lessons: Array.isArray(loadedData.lessons) ? loadedData.lessons : [],
+        quizzes: Array.isArray(loadedData.quizzes) ? loadedData.quizzes : [],
+        quizSubmissions: Array.isArray(loadedData.quizSubmissions) ? loadedData.quizSubmissions : [],
+        assignments: Array.isArray(loadedData.assignments) ? loadedData.assignments : [],
+        assignmentSubmissions: Array.isArray(loadedData.assignmentSubmissions) ? loadedData.assignmentSubmissions : [],
+        payments: Array.isArray(loadedData.payments) ? loadedData.payments : [],
+        enrollments: Array.isArray(loadedData.enrollments) ? loadedData.enrollments : [],
+        progress: Array.isArray(loadedData.progress) ? loadedData.progress : [],
+        notifications: Array.isArray(loadedData.notifications) ? loadedData.notifications : [],
+        announcements: Array.isArray(loadedData.announcements) ? loadedData.announcements : [],
+        settings: loadedData.settings || generateInitialData().settings,
+        auditLogs: Array.isArray(loadedData.auditLogs) ? loadedData.auditLogs : [],
+        contactMessages: Array.isArray(loadedData.contactMessages) ? loadedData.contactMessages : [],
+      };
+
+      // Guarantee admin user exists with password hash
+      const adminUser = this.data.users.find((u) => u.role === 'admin');
+      if (!adminUser || !adminUser.passwordHash) {
+        console.warn('[DB Init] Admin user missing or has invalid passwordHash, bootstrapping admin credentials...');
+        const initial = generateInitialData();
+        const initialAdmin = initial.users.find((u) => u.role === 'admin');
+        if (initialAdmin) {
+          if (!adminUser) {
+            this.data.users.unshift(initialAdmin);
+          } else {
+            adminUser.passwordHash = initialAdmin.passwordHash;
+            adminUser.email = 'admin@techsetu.com';
+          }
+        }
+      }
+
       if (isVercel && !fs.existsSync(DB_FILE)) {
         this.save();
       }
@@ -826,8 +861,19 @@ class PersistentDatabase {
     return this.data.users.find((u) => u.id === id);
   }
 
-  public findUserByEmail(email: string): (User & { passwordHash: string }) | undefined {
-    return this.data.users.find((u) => u.email.toLowerCase() === email.toLowerCase());
+  public findUserByEmail(email?: string): (User & { passwordHash: string }) | undefined {
+    if (!email || typeof email !== 'string') return undefined;
+    const clean = email.trim().toLowerCase();
+    return this.data.users.find((u) => {
+      if (!u || !u.email) return false;
+      const uEmail = u.email.trim().toLowerCase();
+      if (uEmail === clean) return true;
+      // Support admin email alias for backwards-compatibility
+      if (u.role === 'admin' && (clean === 'admin@techsetu.com' || clean === 'admin@lms.com')) {
+        return true;
+      }
+      return false;
+    });
   }
 
   public findUserByPhone(phone: string): (User & { passwordHash: string }) | undefined {
