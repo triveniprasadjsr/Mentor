@@ -1,0 +1,85 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Default Deny All
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId);
+      allow update: if (isOwner(userId) && request.resource.data.role == resource.data.role) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Admins Collection
+    match /admins/{adminId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Courses Collection (Public read, admin write)
+    match /courses/{courseId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Instructors Collection (Public read, admin write)
+    match /instructors/{instructorId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Enrollments Collection
+    match /enrollments/{enrollmentId} {
+      allow get: if (isSignedIn() && resource.data.studentId == request.auth.uid) || isAdmin();
+      allow list: if (isSignedIn() && request.query.limit <= 100 && (isAdmin() || resource.data.studentId == request.auth.uid));
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Payments Collection
+    match /payments/{paymentId} {
+      allow get: if (isSignedIn() && resource.data.studentId == request.auth.uid) || isAdmin();
+      allow list: if (isSignedIn() && (isAdmin() || resource.data.studentId == request.auth.uid));
+      allow create: if isSignedIn() && request.resource.data.studentId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Contact Messages Collection
+    match /contactMessages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Site Settings Collection
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Audit Logs Collection
+    match /auditLogs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

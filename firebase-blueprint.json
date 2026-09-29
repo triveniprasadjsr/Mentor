@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access control.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique user ID" },
+        "name": { "type": "string", "description": "Full name" },
+        "email": { "type": "string", "format": "email", "description": "Email address" },
+        "role": { "type": "string", "enum": ["admin", "student"], "description": "User access role" },
+        "phone": { "type": "string", "description": "Contact number" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "Exam preparation batch and curriculum.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique course ID" },
+        "title": { "type": "string", "description": "Course title" },
+        "slug": { "type": "string", "description": "SEO URL slug" },
+        "category": { "type": "string", "description": "Engineering branch" },
+        "exam": { "type": "string", "description": "Exam target (SSC JE, RRB JE, State AE)" },
+        "price": { "type": "number", "description": "Original price in INR" },
+        "discountPrice": { "type": "number", "description": "Sale price in INR" },
+        "status": { "type": "string", "enum": ["published", "draft", "archived"], "description": "Course status" },
+        "instructorId": { "type": "string", "description": "Assigned faculty ID" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["id", "title", "category", "exam", "price", "discountPrice", "status"]
+    },
+    "Enrollment": {
+      "title": "Enrollment",
+      "description": "Student enrollment record with access duration and expiry date.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Enrollment record ID" },
+        "studentId": { "type": "string", "description": "Enrolled student ID" },
+        "courseId": { "type": "string", "description": "Enrolled course ID" },
+        "status": { "type": "string", "enum": ["active", "revoked", "expired"], "description": "Access status" },
+        "enrolledAt": { "type": "string", "description": "Start enrollment date" },
+        "validityDuration": { "type": "string", "description": "Readable validity description" },
+        "accessDurationDays": { "type": "number", "description": "Days of access granted" },
+        "expiresAt": { "type": "string", "description": "Expiration date ISO string" },
+        "isExpired": { "type": "boolean", "description": "Expiry flag" }
+      },
+      "required": ["id", "studentId", "courseId", "status", "enrolledAt"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Payment verification record for course purchasing.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Payment record ID" },
+        "studentId": { "type": "string", "description": "Student user ID" },
+        "courseId": { "type": "string", "description": "Purchased course ID" },
+        "amount": { "type": "number", "description": "Payment amount" },
+        "transactionId": { "type": "string", "description": "Bank UTR or transaction ID" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"], "description": "Verification status" },
+        "createdAt": { "type": "string", "description": "Payment timestamp" }
+      },
+      "required": ["id", "studentId", "courseId", "amount", "transactionId", "status"]
+    },
+    "Instructor": {
+      "title": "Instructor",
+      "description": "Faculty profile information.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Instructor ID" },
+        "name": { "type": "string", "description": "Full name" },
+        "qualification": { "type": "string", "description": "Degree or designation" },
+        "experience": { "type": "string", "description": "Years of experience" },
+        "bio": { "type": "string", "description": "Faculty biography" },
+        "photo": { "type": "string", "description": "Image URL" }
+      },
+      "required": ["id", "name", "qualification"]
+    },
+    "ContactMessage": {
+      "title": "ContactMessage",
+      "description": "Student inquiry message and admin response.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Inquiry ID" },
+        "name": { "type": "string", "description": "Sender name" },
+        "email": { "type": "string", "format": "email", "description": "Sender email" },
+        "phone": { "type": "string", "description": "Contact number" },
+        "subject": { "type": "string", "description": "Inquiry subject" },
+        "message": { "type": "string", "description": "Original student question" },
+        "status": { "type": "string", "enum": ["new", "read", "replied"], "description": "Response status" },
+        "adminReply": { "type": "string", "description": "Admin response text" },
+        "repliedAt": { "type": "string", "description": "Reply timestamp" }
+      },
+      "required": ["id", "name", "email", "message", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "User profiles and account data"
+    },
+    "/courses/{courseId}": {
+      "schema": { "$ref": "Course" },
+      "description": "Course catalog and syllabus"
+    },
+    "/enrollments/{enrollmentId}": {
+      "schema": { "$ref": "Enrollment" },
+      "description": "Course enrollments and expiry records"
+    },
+    "/payments/{paymentId}": {
+      "schema": { "$ref": "Payment" },
+      "description": "Payment verification transactions"
+    },
+    "/instructors/{instructorId}": {
+      "schema": { "$ref": "Instructor" },
+      "description": "Faculty and educator profiles"
+    },
+    "/contactMessages/{messageId}": {
+      "schema": { "$ref": "ContactMessage" },
+      "description": "Student inquiries and responses"
+    }
+  }
+}

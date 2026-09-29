@@ -1,0 +1,710 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "System Administrator",
+      "email": "admin@techsetu.com",
+      "phone": "+91 9876543210",
+      "role": "admin",
+      "profilePhoto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "status": "active",
+      "passwordHash": "$2b$10$52lwPYtx83Qjt5XiUNR9I.KZUsUAa0qnbVTdHL3u6f9nziBJRbhVq",
+      "createdAt": "2026-09-25T19:36:14.660Z",
+      "updatedAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "usr-student-1",
+      "name": "Aman Kumar Verma",
+      "email": "student@test.com",
+      "phone": "+91 9123456780",
+      "role": "student",
+      "profilePhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=80",
+      "dob": "2001-05-14",
+      "city": "Patna",
+      "state": "Bihar",
+      "status": "active",
+      "passwordHash": "$2b$10$gxUkId6K5eaAnFbSkT0ktujpk3BF9W0qTyYi6UEZ.RNXsnv7TVtG2",
+      "createdAt": "2026-09-25T19:36:14.660Z",
+      "updatedAt": "2026-09-25T19:36:14.660Z"
+    }
+  ],
+  "instructors": [
+    {
+      "id": "inst-1",
+      "name": "Er. Rajiv Sharma",
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+      "qualification": "M.Tech (Power Systems, IIT Delhi), Ex-IES",
+      "experience": "12+ Years Teaching Experience for SSC JE & RRB JE",
+      "subjects": [
+        "Circuit Theory",
+        "Electrical Machines",
+        "Power Systems"
+      ],
+      "examExpertise": [
+        "SSC JE",
+        "RRB JE",
+        "UPPCL AE/JE",
+        "State PSC AE"
+      ],
+      "bio": "Er. Rajiv Sharma has trained over 45,000+ engineering aspirants with hundreds of top-100 ranks across national engineering examinations. Known for his intuitive visual explanation of electrical machines.",
+      "rating": 4.9,
+      "totalStudents": 14200,
+      "coursesCount": 3,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "inst-2",
+      "name": "Er. Ananya Sen",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+      "qualification": "M.Tech (IIT Roorkee), Gold Medalist",
+      "experience": "9+ Years in Technical & Non-Tech Aptitude for Engineering Exams",
+      "subjects": [
+        "Basic Electronics",
+        "Measurement & Instrumentation",
+        "Engineering Mathematics"
+      ],
+      "examExpertise": [
+        "RRB JE CBT 1 & 2",
+        "SSC JE",
+        "DMRC JE"
+      ],
+      "bio": "Specialist in simplifying complex instrumentation diagrams and non-technical quantitative sections for diploma and degree engineers.",
+      "rating": 4.85,
+      "totalStudents": 11800,
+      "coursesCount": 2,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "inst-3",
+      "name": "Er. Vikram Patel",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+      "qualification": "B.Tech (Civil Engineering, IIT BHU), Senior Structural Consultant",
+      "experience": "14+ Years in AE/JE Coaching & Infrastructure Consulting",
+      "subjects": [
+        "Strength of Materials (SOM)",
+        "RCC Structures",
+        "Fluid Mechanics",
+        "Surveying"
+      ],
+      "examExpertise": [
+        "State AE/JE",
+        "SSC JE Civil",
+        "BPSC AE",
+        "UKPSC JE"
+      ],
+      "bio": "Authored 4 best-selling study guides for Civil Engineering competitive exams with practical field examples and short tricks.",
+      "rating": 4.92,
+      "totalStudents": 16500,
+      "coursesCount": 2,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-1",
+      "title": "SSC JE 2026: Electrical Engineering Comprehensive Master Batch",
+      "slug": "ssc-je-2026-electrical-engineering-master-batch",
+      "subtitle": "Complete CBT-1 & CBT-2 coverage with theory, numericals, hand-written notes, and PYQs",
+      "description": "The definitive all-in-one preparation program for SSC JE Electrical aspirants. Covers Circuit Laws, AC Fundamentals, Magnetic Circuits, Electrical Machines (Transformers, DC Machines, Synchronous & Induction Motors), Generation & Transmission, Switchgear, Estimation & Costing, Basic Electronics, and General Science non-tech support.",
+      "category": "Electrical Engineering",
+      "exam": "SSC JE",
+      "subject": "Complete Technical Syllabus",
+      "instructorId": "inst-1",
+      "price": 2499,
+      "discountPrice": 1499,
+      "thumbnail": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
+      "duration": "180+ Hours",
+      "language": "Hinglish (Hindi + English Technical Terms)",
+      "difficulty": "All Levels",
+      "requirements": [
+        "Diploma or B.Tech/B.E. in Electrical / EEE Engineering",
+        "Basic understanding of 10th/12th physics and algebra",
+        "Dedication of at least 2-3 hours daily for video lectures and revision"
+      ],
+      "learningOutcomes": [
+        "Master all SSC JE CBT-1 & CBT-2 Technical concepts with high numerical solving speed",
+        "Solve 15+ years of previous year questions (PYQs) with shortcut techniques",
+        "Access downloadable hand-written formula sheets and lecture PDF notes",
+        "Practice with chapter-wise and full-length timed quizzes"
+      ],
+      "status": "published",
+      "isFeatured": true,
+      "modulesCount": 3,
+      "lecturesCount": 8,
+      "materialsCount": 4,
+      "enrolledStudentsCount": 384,
+      "rating": 4.9,
+      "createdAt": "2026-09-25T19:36:14.660Z",
+      "updatedAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "course-2",
+      "title": "RRB JE 2026: CBT-1 + CBT-2 Technical & Non-Tech Super Batch",
+      "slug": "rrb-je-2026-cbt1-cbt2-super-batch",
+      "subtitle": "Guaranteed syllabus completion with Mathematics, General Science, Reasoning & Core Technical",
+      "description": "Specially engineered for Railway Recruitment Board Junior Engineer (RRB JE). Includes comprehensive coverage of CBT-1 (Maths, General Intelligence & Reasoning, General Awareness, General Science) and CBT-2 Stage-wise technical topics with mock test series.",
+      "category": "Electrical & Electronics",
+      "exam": "RRB JE",
+      "subject": "CBT 1 + CBT 2 Combined",
+      "instructorId": "inst-2",
+      "price": 2999,
+      "discountPrice": 1999,
+      "thumbnail": "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?w=800&auto=format&fit=crop&q=80",
+      "duration": "220+ Hours",
+      "language": "Hinglish",
+      "difficulty": "All Levels",
+      "requirements": [
+        "Diploma / Degree in Engineering or allied disciplines",
+        "Smartphone or PC with internet connection"
+      ],
+      "learningOutcomes": [
+        "Clear RRB JE CBT-1 cutoff with high scores in Non-Tech sections",
+        "Technical domain excellence in basic electrical, analog electronics and computer fundamentals",
+        "Mock test analysis with ranking and speed optimization"
+      ],
+      "status": "archived",
+      "isFeatured": true,
+      "modulesCount": 2,
+      "lecturesCount": 6,
+      "materialsCount": 3,
+      "enrolledStudentsCount": 512,
+      "rating": 4.85,
+      "createdAt": "2026-09-25T19:36:14.660Z",
+      "updatedAt": "2026-09-25T19:36:14.660Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "mod-1",
+      "courseId": "course-1",
+      "title": "Module 1: Basic Electrical Laws & Network Theorems",
+      "order": 1,
+      "description": "Foundational concepts of circuit theory, Kirchhoff laws, node/mesh analysis and network theorems.",
+      "lessons": [],
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "mod-2",
+      "courseId": "course-1",
+      "title": "Module 2: Electrical Machines - Transformers & DC Machines",
+      "order": 2,
+      "description": "In-depth analysis of single phase and three phase transformers, autotransformers and DC generators/motors.",
+      "lessons": [],
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "mod-3",
+      "courseId": "course-1",
+      "title": "Module 3: AC Fundamentals & Magnetic Circuits",
+      "order": 3,
+      "description": "Phasor representations, series and parallel resonance, magnetic circuits and hysteresis.",
+      "lessons": [],
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "mod-4",
+      "courseId": "course-2",
+      "title": "Module 1: General Science & CBT-1 Non-Technical Strategy",
+      "order": 1,
+      "description": "Physics, Chemistry, and Life Sciences from NCERT standards with exam tricks.",
+      "lessons": [],
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "mod-5",
+      "courseId": "course-2",
+      "title": "Module 2: Basic Electronics & Digital Fundamentals",
+      "order": 2,
+      "description": "Semiconductor physics, PN junction diodes, BJT, Op-Amps and Logic Gates.",
+      "lessons": [],
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "les-1",
+      "moduleId": "mod-1",
+      "courseId": "course-1",
+      "title": "Lecture 1: Ohm’s Law, Node Analysis & KCL/KVL Applications",
+      "order": 1,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "videoDuration": "42:15",
+      "contentText": "Detailed derivation of Kirchhoff Current Law (KCL) and Kirchhoff Voltage Law (KVL) with reference polarity conventions.",
+      "isFreePreview": true,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-2",
+      "moduleId": "mod-1",
+      "courseId": "course-1",
+      "title": "Lecture 2: Thevenin & Norton Equivalent Circuit Theorems",
+      "order": 2,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "videoDuration": "38:40",
+      "contentText": "Step-by-step conversion of complex active networks into Thevenin voltage and Norton current sources.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-3",
+      "moduleId": "mod-1",
+      "courseId": "course-1",
+      "title": "Lecture 3: Maximum Power Transfer & Superposition Theorems",
+      "order": 3,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "videoDuration": "45:10",
+      "contentText": "Proof of Maximum Power Transfer for DC and AC circuits, with condition for maximum efficiency.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-4",
+      "moduleId": "mod-1",
+      "courseId": "course-1",
+      "title": "Study Material: Circuit Theory Hand-written Master Notes & Formula Book",
+      "order": 4,
+      "type": "pdf",
+      "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "contentText": "Complete 35-page hand-written formula book covering sign conventions, mesh equations, star-delta transformations and quick revision tables.",
+      "isFreePreview": true,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-5",
+      "moduleId": "mod-1",
+      "courseId": "course-1",
+      "title": "Quiz: Circuit Theory & Network Laws Assessment",
+      "order": 5,
+      "type": "quiz",
+      "quizId": "quiz-1",
+      "contentText": "Test your understanding of basic laws, node voltages, and equivalent resistance calculations.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-6",
+      "moduleId": "mod-2",
+      "courseId": "course-1",
+      "title": "Lecture 4: Single Phase Transformer Construction & EMF Equation",
+      "order": 1,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "videoDuration": "51:20",
+      "contentText": "Core and shell type construction, laminations to reduce eddy current loss, and exact EMF equation derivation.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-7",
+      "moduleId": "mod-2",
+      "courseId": "course-1",
+      "title": "Study Material: Transformer Losses, Efficiency & Voltage Regulation Sheet",
+      "order": 2,
+      "type": "pdf",
+      "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "contentText": "Includes open-circuit and short-circuit test calculations, all-day efficiency vs power efficiency equations.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-8",
+      "moduleId": "mod-2",
+      "courseId": "course-1",
+      "title": "Assignment: Numerical Problem Set on Auto-Transformer Copper Saving",
+      "order": 3,
+      "type": "assignment",
+      "assignmentId": "assign-1",
+      "contentText": "Solve 5 standard numerical problems demonstrating copper weight reduction in autotransformers compared to 2-winding transformers.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-9",
+      "moduleId": "mod-4",
+      "courseId": "course-2",
+      "title": "Lecture 1: General Science Physics - Kinematics, Work & Energy",
+      "order": 1,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "videoDuration": "35:00",
+      "contentText": "Newton laws of motion, conservation of momentum, work-energy theorem with RRB JE PYQ pattern.",
+      "isFreePreview": true,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "les-10",
+      "moduleId": "mod-4",
+      "courseId": "course-2",
+      "title": "Lecture 2: Quantitative Aptitude - Percentages, Profit & Loss Fast Track",
+      "order": 2,
+      "type": "video",
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "videoDuration": "40:15",
+      "contentText": "Fraction-to-percentage conversion tables and shortcut tricks for CBT-1.",
+      "isFreePreview": false,
+      "createdAt": "2026-09-25T19:36:14.660Z"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "quiz-1",
+      "lessonId": "les-5",
+      "courseId": "course-1",
+      "title": "Circuit Theory & Basic Network Theorems Assessment",
+      "timeLimitMinutes": 15,
+      "totalMarks": 10,
+      "passPercentage": 60,
+      "questions": [
+        {
+          "id": "q-1",
+          "question": "According to Kirchhoff Current Law (KCL), the algebraic sum of currents entering a node is equal to:",
+          "options": [
+            "Zero",
+            "Sum of voltages in the loop",
+            "The total power dissipated",
+            "Infinity in high impedance nodes"
+          ],
+          "correctOption": 0,
+          "explanation": "KCL is based on the law of conservation of electric charge: sum of entering currents = sum of leaving currents, i.e., algebraic sum = 0.",
+          "marks": 2
+        },
+        {
+          "id": "q-2",
+          "question": "Thevenin theorem replaces an active two-terminal linear network by:",
+          "options": [
+            "An ideal current source in parallel with resistance",
+            "An ideal voltage source in series with resistance",
+            "An ideal voltage source in parallel with inductance",
+            "A pure resistance with no source"
+          ],
+          "correctOption": 1,
+          "explanation": "Thevenin equivalent consists of an open-circuit voltage source (Vth) in series with equivalent resistance (Rth).",
+          "marks": 2
+        },
+        {
+          "id": "q-3",
+          "question": "Under the condition of Maximum Power Transfer in a DC network, the power transfer efficiency is:",
+          "options": [
+            "100%",
+            "75%",
+            "50%",
+            "25%"
+          ],
+          "correctOption": 2,
+          "explanation": "When load resistance equals internal source resistance (RL = Rth), half the total generated power is dissipated in Rth and half in RL, giving 50% efficiency.",
+          "marks": 2
+        },
+        {
+          "id": "q-4",
+          "question": "Which of the following theorems can be applied to both linear and non-linear networks?",
+          "options": [
+            "Superposition Theorem",
+            "Thevenin Theorem",
+            "Tellegen Theorem",
+            "Norton Theorem"
+          ],
+          "correctOption": 2,
+          "explanation": "Tellegen theorem is applicable to any lumped network whether linear or non-linear, passive or active, time-invariant or time-varying.",
+          "marks": 2
+        },
+        {
+          "id": "q-5",
+          "question": "In a series RLC circuit at resonant frequency, the power factor of the circuit is:",
+          "options": [
+            "Zero lagging",
+            "Zero leading",
+            "0.707 lagging",
+            "Unity"
+          ],
+          "correctOption": 3,
+          "explanation": "At resonance, inductive reactance cancels capacitive reactance (XL = XC), so impedance is purely resistive (Z = R) and power factor is unity (cos 0 = 1).",
+          "marks": 2
+        }
+      ]
+    }
+  ],
+  "quizSubmissions": [],
+  "assignments": [
+    {
+      "id": "assign-1",
+      "lessonId": "les-8",
+      "courseId": "course-1",
+      "title": "Transformer Efficiency & Copper Saving Calculation Problem Set",
+      "instructions": "Review the problem statements in the lecture. Calculate the percentage saving of copper in a 220V/110V auto-transformer compared to a standard 2-winding transformer. Show full calculation steps.",
+      "attachmentUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "totalMarks": 20,
+      "deadline": "2026-12-31"
+    }
+  ],
+  "assignmentSubmissions": [],
+  "payments": [
+    {
+      "id": "pay-seed-1",
+      "orderId": "ORD-20260925-001",
+      "studentId": "usr-student-1",
+      "studentName": "Aman Kumar Verma",
+      "studentEmail": "student@test.com",
+      "studentPhone": "+91 9123456780",
+      "courseId": "course-1",
+      "courseTitle": "SSC JE 2026: Electrical Engineering Comprehensive Master Batch",
+      "amount": 1499,
+      "paymentMethod": "manual_upi",
+      "transactionId": "UPI428910482910",
+      "receiptUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80",
+      "status": "approved",
+      "adminNote": "Verified via bank statement UTR matching.",
+      "submittedAt": "2026-09-23T19:36:14.661Z",
+      "reviewedAt": "2026-09-24T00:24:14.661Z",
+      "reviewedBy": "admin@techsetu.com"
+    },
+    {
+      "id": "pay-seed-2",
+      "orderId": "ORD-20260925-002",
+      "studentId": "usr-student-1",
+      "studentName": "Aman Kumar Verma",
+      "studentEmail": "student@test.com",
+      "studentPhone": "+91 9123456780",
+      "courseId": "course-2",
+      "courseTitle": "RRB JE 2026: CBT-1 + CBT-2 Technical & Non-Tech Super Batch",
+      "amount": 1999,
+      "paymentMethod": "manual_upi",
+      "transactionId": "UPI881928301948",
+      "receiptUrl": "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&auto=format&fit=crop&q=80",
+      "status": "approved",
+      "adminNote": "Approved by Administrator",
+      "submittedAt": "2026-09-25T15:36:14.661Z",
+      "reviewedAt": "2026-09-29T14:59:36.423Z",
+      "reviewedBy": "admin@techsetu.com"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "enr-seed-1",
+      "studentId": "usr-student-1",
+      "courseId": "course-1",
+      "paymentId": "pay-seed-1",
+      "status": "active",
+      "enrolledAt": "2026-09-24T00:24:14.661Z",
+      "grantedBy": "payment_approval",
+      "progressPercentage": 40
+    },
+    {
+      "id": "enr-1790693976424-wwq5i",
+      "studentId": "usr-student-1",
+      "courseId": "course-2",
+      "paymentId": "pay-seed-2",
+      "status": "active",
+      "enrolledAt": "2026-09-29T14:59:36.424Z",
+      "grantedBy": "payment_approval",
+      "validityDuration": "365 Days",
+      "expiresAt": "2027-09-29T14:59:36.424Z",
+      "isExpired": false,
+      "progressPercentage": 0
+    }
+  ],
+  "progress": [
+    {
+      "id": "prog-seed-1",
+      "studentId": "usr-student-1",
+      "courseId": "course-1",
+      "completedLessonIds": [
+        "les-1",
+        "les-4"
+      ],
+      "lastAccessedLessonId": "les-2",
+      "progressPercentage": 40,
+      "lastAccessedAt": "2026-09-25T19:36:14.661Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "userId": "usr-student-1",
+      "title": "Course Access Activated! 🎉",
+      "message": "Your payment of ₹1,499 for SSC JE 2026 Electrical has been verified and approved. Start learning now!",
+      "link": "/dashboard",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-09-24T00:24:14.661Z"
+    },
+    {
+      "id": "notif-2",
+      "userId": "admin",
+      "title": "New Payment Pending Verification",
+      "message": "Student Aman Kumar Verma submitted receipt for RRB JE 2026 (₹1,999, UTR: UPI881928301948).",
+      "link": "/admin",
+      "type": "info",
+      "read": false,
+      "createdAt": "2026-09-25T15:36:14.661Z"
+    },
+    {
+      "id": "notif-1790693976424",
+      "userId": "usr-student-1",
+      "title": "Payment Approved & Course Enrolled! 🎉",
+      "message": "Your payment of ₹1999 for \"RRB JE 2026: CBT-1 + CBT-2 Technical & Non-Tech Super Batch\" has been verified. Access is active (365 Days). You can now access all lectures and notes.",
+      "link": "/learn/course-2",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-09-29T14:59:36.424Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-1",
+      "courseId": "all",
+      "title": "Special Live Doubt Clearance Session on Sunday at 7 PM IST",
+      "content": "All enrolled students for SSC JE & RRB JE batches are invited to the live session covering difficult circuit numericals and test strategy.",
+      "authorName": "Er. Rajiv Sharma",
+      "createdAt": "2026-09-24T19:36:14.661Z"
+    }
+  ],
+  "settings": {
+    "siteName": "TechSetu Education",
+    "tagline": "Premier Learning Platform for JE & AE Competitive Technical Examinations",
+    "logoUrl": "",
+    "contactEmail": "support@techsetu.com",
+    "contactPhone": "+91 98765 43210",
+    "address": "TechSetu Knowledge Park, Sector 62, Noida, Uttar Pradesh 201309",
+    "currencySymbol": "₹",
+    "upiId": "techsetu@upi",
+    "upiAccountHolder": "TechSetu Education Services Pvt Ltd",
+    "upiQrUrl": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=techsetu@upi&pn=TechSetu%20Education&cu=INR",
+    "paymentInstructions": "1. Scan the QR code or use the UPI ID: techsetu@upi via Google Pay, PhonePe, Paytm, or BHIM.\n2. Enter the exact course discount price.\n3. Complete payment in your banking app.\n4. Take a clear screenshot of the transaction showing the 12-digit UTR / Reference number.\n5. Fill in the form below and submit. Our admin verifies records within 15-60 minutes.",
+    "heroTitle": "Learn. Prepare. Succeed.",
+    "heroSubtitle": "Structured courses, expert instructors, video lectures and study materials for JE and AE competitive examinations.",
+    "aboutContent": "TechSetu is India's dedicated preparation ecosystem engineered exclusively for engineering graduates and diploma holders aiming to crack SSC JE, RRB JE, State Public Service Commission Assistant Engineer (AE), Electricity Board exams, and PSU technical roles. Led by former IES officers and IIT alumni, our faculty delivers concept-first pedagogical excellence with complete syllabus accountability.",
+    "privacyPolicy": "TechSetu respects user privacy. We do not sell or trade student personal records. All data, payment proofs, and learning records are securely encrypted and retained strictly for course delivery and academic verification.",
+    "termsPolicy": "By purchasing or enrolling in TechSetu courses, students agree to strictly educational usage. Screen recording, downloading for unauthorized distribution, or credential sharing is strictly prohibited and subject to account suspension without refund.",
+    "refundPolicy": "Due to instant access to digital proprietary video lectures and downloadable notes, refunds are only processed if requested within 24 hours of enrollment prior to accessing more than 10% of lecture materials. Transaction fees may apply.",
+    "enableManualPayment": true,
+    "enableOnlinePayment": true,
+    "announcementBanner": "🚀 Admissions Open for 2026 Engineering Exam Batches! Flat 40% Off with Early Bird Offer."
+  },
+  "auditLogs": [
+    {
+      "id": "audit-1790700845523-1jgm",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T16:54:05.523Z"
+    },
+    {
+      "id": "audit-1790700472947-bzgx",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T16:47:52.947Z"
+    },
+    {
+      "id": "audit-1790695687677-ls37",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T15:28:07.677Z"
+    },
+    {
+      "id": "audit-1790694080155-ff0l",
+      "adminEmail": "admin@techsetu.com",
+      "action": "COURSE_ARCHIVED",
+      "entityType": "Course",
+      "entityId": "course-2",
+      "details": "Course has active enrolled students. It has been archived and hidden from catalog to preserve student access.",
+      "timestamp": "2026-09-29T15:01:20.155Z"
+    },
+    {
+      "id": "audit-1790694076848-b5vm",
+      "adminEmail": "admin@techsetu.com",
+      "action": "COURSE_DELETED",
+      "entityType": "Course",
+      "entityId": "course-3",
+      "details": "Course successfully deleted",
+      "timestamp": "2026-09-29T15:01:16.848Z"
+    },
+    {
+      "id": "audit-1790694073054-clij",
+      "adminEmail": "admin@techsetu.com",
+      "action": "COURSE_DELETED",
+      "entityType": "Course",
+      "entityId": "course-4",
+      "details": "Course successfully deleted",
+      "timestamp": "2026-09-29T15:01:13.054Z"
+    },
+    {
+      "id": "audit-1790694063339-ea0j",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T15:01:03.339Z"
+    },
+    {
+      "id": "audit-1790693976425-jtob",
+      "adminEmail": "admin@techsetu.com",
+      "action": "PAYMENT_APPROVED",
+      "entityType": "Payment",
+      "entityId": "pay-seed-2",
+      "details": "Approved payment of ₹1999 for Aman Kumar Verma (RRB JE 2026: CBT-1 + CBT-2 Technical & Non-Tech Super Batch). Enrollment activated.",
+      "timestamp": "2026-09-29T14:59:36.425Z"
+    },
+    {
+      "id": "audit-1790693953872-i28c",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-29T14:59:13.872Z"
+    },
+    {
+      "id": "audit-1790364997307-ntgp",
+      "adminEmail": "admin@techsetu.com",
+      "action": "ADMIN_LOGIN",
+      "entityType": "User",
+      "entityId": "usr-admin-1",
+      "details": "Admin logged into administration panel successfully.",
+      "timestamp": "2026-09-25T19:36:37.307Z"
+    },
+    {
+      "id": "audit-1",
+      "adminEmail": "admin@techsetu.com",
+      "action": "INITIAL_SYSTEM_BOOTSTRAP",
+      "entityType": "System",
+      "entityId": "sys-0",
+      "details": "Platform initialized with seed courses, instructors, and secure security controls.",
+      "timestamp": "2026-09-25T19:36:14.660Z"
+    },
+    {
+      "id": "audit-2",
+      "adminEmail": "admin@techsetu.com",
+      "action": "PAYMENT_APPROVED",
+      "entityType": "Payment",
+      "entityId": "pay-seed-1",
+      "details": "Approved manual UPI payment ₹1,499 and granted enrollment to student Aman Kumar Verma for SSC JE 2026.",
+      "timestamp": "2026-09-24T00:24:14.661Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "msg-1",
+      "name": "Rohit Sharma",
+      "email": "rohit.s@gmail.com",
+      "phone": "+91 9898989898",
+      "subject": "Batch timing query for RRB JE",
+      "message": "Hello, are the lectures live or pre-recorded? Can I watch on mobile app while traveling?",
+      "status": "new",
+      "createdAt": "2026-09-25T17:36:14.661Z"
+    }
+  ]
+}

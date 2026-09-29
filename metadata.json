@@ -1,0 +1,7 @@
+{
+  "name": "TechSetu - Technical Exam Prep & JE/AE Learning Platform",
+  "description": "Comprehensive online course selling and learning platform for RRB JE, SSC JE, State AE/JE, and Engineering competitive examinations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
